@@ -38,7 +38,7 @@ defmodule Issues.GithubIssues do
     { :ok, :jsx.decode(body) }
   end
 
-  def handle_response(%{status_code: ___, body: body}) do
+  def handle_response({:ok, %{status_code: ___, body: body}}) do
     { :error, :jsx.decode(body) }
   end
 
